@@ -1,0 +1,25 @@
+@mixin th-background($background) {
+    th {
+        background: $background;
+    }
+}
+
+@mixin tr-striped-background($background) {
+    tr:nth-child(even) td {
+        background: $background;
+    }
+}
+
+@mixin caption-color($color) {
+    caption {
+        color: $color;
+    }
+}
+
+@mixin table-hover-row-background($background) {
+    table.hover tr:hover {
+        th, td {
+            background: $table-hover-row-background;
+        }
+    }
+}
