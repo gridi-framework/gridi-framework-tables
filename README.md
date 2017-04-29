@@ -1,7 +1,7 @@
 # Gridi Framework Tables
 
 ## Install
-`brew install gridi-framework-tables`
+`bower install gridi-framework-tables`
 
 ## Licence
 
