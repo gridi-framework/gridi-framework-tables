@@ -1,12 +1,14 @@
-@mixin th-background($background) {
+@mixin th-background-and-color($background, $color) {
     th {
         background: $background;
+        color: $color;
     }
 }
 
-@mixin tr-striped-background($background) {
+@mixin tr-striped-background-and-color($background, $color) {
     tr:nth-child(even) td {
         background: $background;
+        color: $color;
     }
 }
 
@@ -16,10 +18,11 @@
     }
 }
 
-@mixin table-hover-row-background($background) {
+@mixin table-hover-row-background-and-color($background, $color) {
     table.hover tr:hover {
         th, td {
-            background: $table-hover-row-background;
+            background: $background;
+            color: $color;
         }
     }
 }
