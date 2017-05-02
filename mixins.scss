@@ -1,28 +1,35 @@
-@mixin th-background-and-color($background, $color) {
-    th {
-        background: $background;
-        color: $color;
-    }
-}
+@mixin include-table-colors($border-color, $background, $color) {
+    border-color: $border-color;
 
-@mixin tr-striped-background-and-color($background, $color) {
-    tr:nth-child(even) td {
-        background: $background;
-        color: $color;
-    }
-}
-
-@mixin caption-color($color) {
     caption {
         color: $color;
     }
+
+    th, td {
+        border-color: $border-color;
+    }
+
+    th,
+    tr:nth-child(even) td,
+    &.hover tr:hover th,
+    &.hover tr:hover td {
+        background-color: $color;
+        color: $background;
+    }
+
+    &.unstriped tr:nth-child(even) td {
+        color: inherit;
+    }
 }
 
-@mixin table-hover-row-background-and-color($background, $color) {
-    table.hover tr:hover {
-        th, td {
-            background: $background;
-            color: $color;
-        }
+@mixin table-colors($border-color, $background, $color) {
+    table {
+        @include include-table-colors($border-color, $background, $color);
+    }
+}
+
+@mixin class-table-colors($class, $border-color, $background, $color) {
+    table.#{$class} {
+        @include include-table-colors($border-color, $background, $color);
     }
 }

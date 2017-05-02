@@ -4,6 +4,7 @@ th, td, caption {
 
 th, td {
     border: $table-column-border;
+    border-spacing: 0;
 }
 
 th {
@@ -24,6 +25,7 @@ caption {
 table {
     width: 100%;
     margin: $table-margin;
+    border: $table-column-border;
     border-collapse: collapse;
     border-spacing: 0;
 
@@ -37,7 +39,7 @@ table {
 
     &.unstriped {
         td {
-            background: transparent;
+            background: transparent !important;
         }
     }
 }
