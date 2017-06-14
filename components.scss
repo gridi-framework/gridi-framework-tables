@@ -24,22 +24,8 @@ caption {
 
 table {
     width: 100%;
-    margin: $table-margin;
+    @include include-element-margin($table-margin-top, $table-margin-bottom, $table-margin-left, $table-margin-right, $table-margin-for-screens);
     border: $table-column-border;
     border-collapse: collapse;
     border-spacing: 0;
-
-    &.hover {
-        tr:hover {
-            th, td {
-                background: $table-hover-row-background;
-            }
-        }
-    }
-
-    &.unstriped {
-        td {
-            background: transparent !important;
-        }
-    }
 }
