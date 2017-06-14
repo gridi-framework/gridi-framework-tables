@@ -1,10 +1,7 @@
-th, td, caption {
-    padding: $table-column-padding
-}
-
 th, td {
     border: $table-column-border;
     border-spacing: 0;
+    padding: $table-column-padding;
 }
 
 th {
@@ -18,7 +15,8 @@ tr:nth-child(even) td {
 }
 
 caption {
-    text-align: center;
+    padding: $caption-padding;
+    text-align: $caption-text-align;
     color: $caption-color;
 }
 
