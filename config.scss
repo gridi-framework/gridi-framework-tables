@@ -23,7 +23,7 @@ $table-column-padding: 0.85em 1em !default;
 $th-background: get-color(grey, 200) !default;
 
 //Td
-$td-odd-background: $th-background !default;
+$td-even-background: $th-background !default;
 
 //Caption
 $caption-padding: $table-column-padding !default;
