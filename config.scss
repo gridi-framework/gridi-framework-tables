@@ -14,9 +14,9 @@ $table-margin-for-screens: () !default;
     ),
     ...
 ) !default;*/
+$table-border: 1px solid transparent !default;
 
 //Th Td
-$table-column-border: 1px solid transparent !default;
 $table-column-padding: 0.85em 1em !default;
 
 //Th

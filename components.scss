@@ -1,5 +1,19 @@
+table {
+    width: 100%;
+    @include include-element-margin($table-margin-top, $table-margin-bottom, $table-margin-left, $table-margin-right, $table-margin-for-screens);
+    border: $table-border;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption {
+    padding: $caption-padding;
+    text-align: $caption-text-align;
+    color: $caption-color;
+}
+
 th, td {
-    border: $table-column-border;
+    border: $table-border;
     border-spacing: 0;
     padding: $table-column-padding;
 }
@@ -12,18 +26,4 @@ th {
 
 tr:nth-child(even) td {
     background: $td-even-background;
-}
-
-caption {
-    padding: $caption-padding;
-    text-align: $caption-text-align;
-    color: $caption-color;
-}
-
-table {
-    width: 100%;
-    @include include-element-margin($table-margin-top, $table-margin-bottom, $table-margin-left, $table-margin-right, $table-margin-for-screens);
-    border: $table-column-border;
-    border-collapse: collapse;
-    border-spacing: 0;
 }
