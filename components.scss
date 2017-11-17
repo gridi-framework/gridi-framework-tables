@@ -1,29 +1,348 @@
 table {
-    width: 100%;
-    @include include-element-margin($table-margin-top, $table-margin-bottom, $table-margin-left, $table-margin-right, $table-margin-for-screens);
-    border: $table-border;
-    border-collapse: collapse;
-    border-spacing: 0;
+    width: $table-width;
+    @include margin-shorthand-with-screens-support((
+        top:$table-margin-top,
+        bottom: $table-margin-bottom,
+        left: $table-margin-left,
+        right: $table-margin-right
+    ), $table-margin-for-screens);
+    @include border-shorthand((
+        border: (
+            width: $table-border-width,
+            style: $table-border-style,
+            color: $table-border-color,
+            make-shorthand: true
+        ),
+        border-top: (
+            width: $table-border-top-width,
+            style: $table-border-top-style,
+            color: $table-border-top-color,
+            make-shorthand: $table-border-top-make-shorthand
+        ),
+        border-bottom: (
+            width: $table-border-bottom-width,
+            style: $table-border-bottom-style,
+            color: $table-border-bottom-color,
+            make-shorthand: $table-border-bottom-make-shorthand
+        ),
+        border-left: (
+            width: $table-border-left-width,
+            style: $table-border-left-style,
+            color: $table-border-left-color,
+            make-shorthand: $table-border-left-make-shorthand
+        ),
+        border-right: (
+            width: $table-border-right-width,
+            style: $table-border-right-style,
+            color: $table-border-right-color,
+            make-shorthand: $table-border-right-make-shorthand
+        )
+    ));
+    border-collapse: $table-border-collapse;
+    @include border-spacing-shorthand((
+        horizontal: $table-border-spacing-horizontal,
+        vertical: $table-border-spacing-vertical
+    ));
+    @include table-extra-style();
 }
 
-caption {
-    padding: $caption-padding;
-    text-align: $caption-text-align;
-    color: $caption-color;
+tr {
+    @include tr-extra-style();
 }
 
 th, td {
-    border: $table-border;
-    border-spacing: 0;
-    padding: $table-column-padding;
+    @if (
+        $th-border-width == $td-border-width and
+        $th-border-style == $td-border-style and
+        $th-border-color == $td-border-color
+    ) {
+        @include border-shorthand((
+            border: (
+                width: $th-border-width,
+                style: $th-border-style,
+                color: $th-border-color,
+                make-shorthand: true
+            )
+        ));
+    }
+    @if (
+        $th-border-top-width == $td-border-top-width and
+        $th-border-top-style == $td-border-top-style and
+        $th-border-top-color == $td-border-top-color and
+        $th-border-top-make-shorthand == $td-border-top-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-top: (
+                width: $th-border-top-width,
+                style: $th-border-top-style,
+                color: $th-border-top-color,
+                make-shorthand: $th-border-top-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-bottom-width == $td-border-bottom-width and
+        $th-border-bottom-style == $td-border-bottom-style and
+        $th-border-bottom-color == $td-border-bottom-color and
+        $th-border-bottom-make-shorthand == $td-border-bottom-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-bottom: (
+                width: $th-border-bottom-width,
+                style: $th-border-bottom-style,
+                color: $th-border-bottom-color,
+                make-shorthand: $th-border-bottom-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-left-width == $td-border-left-width and
+        $th-border-left-style == $td-border-left-style and
+        $th-border-left-color == $td-border-left-color and
+        $th-border-left-make-shorthand == $td-border-left-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-left: (
+                width: $th-border-left-width,
+                style: $th-border-left-style,
+                color: $th-border-left-color,
+                make-shorthand: $th-border-left-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-right-width == $td-border-right-width and
+        $th-border-right-style == $td-border-right-style and
+        $th-border-right-color == $td-border-right-color and
+        $th-border-right-make-shorthand == $td-border-right-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-right: (
+                width: $th-border-right-width,
+                style: $th-border-right-style,
+                color: $th-border-right-color,
+                make-shorthand: $th-border-right-make-shorthand
+            )
+        ));
+    }
+
+    @if (
+        $th-padding-top == $td-padding-top and
+        $th-padding-bottom == $td-padding-bottom and
+        $th-padding-left == $td-padding-left and
+        $th-padding-right == $td-padding-right
+    ) {
+        @include padding-shorthand((
+            top: $th-padding-top,
+            bottom: $th-padding-bottom,
+            left: $th-padding-left,
+            right: $th-padding-right
+        ));
+    }
+
+    @include th-td-extra-style();
 }
 
 th {
-    background: $th-background;
-    font-weight: bold;
-    text-align: left;
+    @if (
+        $th-border-width != $td-border-width or
+        $th-border-style != $td-border-style or
+        $th-border-color != $td-border-color
+    ) {
+        @include border-shorthand((
+            border: (
+                width: $th-border-width,
+                style: $th-border-style,
+                color: $th-border-color,
+                make-shorthand: true
+            )
+        ));
+    }
+    @if (
+        $th-border-top-width != $td-border-top-width or
+        $th-border-top-style != $td-border-top-style or
+        $th-border-top-color != $td-border-top-color or
+        $th-border-top-make-shorthand == $td-border-top-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-top: (
+                width: $th-border-top-width,
+                style: $th-border-top-style,
+                color: $th-border-top-color,
+                make-shorthand: $th-border-top-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-bottom-width != $td-border-bottom-width or
+        $th-border-bottom-style != $td-border-bottom-style or
+        $th-border-bottom-color != $td-border-bottom-color or
+        $th-border-bottom-make-shorthand == $td-border-bottom-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-bottom: (
+                width: $th-border-bottom-width,
+                style: $th-border-bottom-style,
+                color: $th-border-bottom-color,
+                make-shorthand: $th-border-bottom-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-left-width != $td-border-left-width or
+        $th-border-left-style != $td-border-left-style or
+        $th-border-left-color != $td-border-left-color or
+        $th-border-left-make-shorthand == $td-border-left-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-left: (
+                width: $th-border-left-width,
+                style: $th-border-left-style,
+                color: $th-border-left-color,
+                make-shorthand: $th-border-left-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-right-width != $td-border-right-width or
+        $th-border-right-style != $td-border-right-style or
+        $th-border-right-color != $td-border-right-color or
+        $th-border-right-make-shorthand == $td-border-right-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-right: (
+                width: $th-border-right-width,
+                style: $th-border-right-style,
+                color: $th-border-right-color,
+                make-shorthand: $th-border-right-make-shorthand
+            )
+        ));
+    }
+    @include background-shorthand((
+        image: $th-background-image,
+        position: $th-background-position,
+        repeat: $th-background-repeat,
+        color: $th-background-color,
+        attachment: $th-background-attachment,
+        make-shorthand: true
+    ));
+    @if (
+        $th-padding-top != $td-padding-top or
+        $th-padding-bottom != $td-padding-bottom or
+        $th-padding-left != $td-padding-left or
+        $th-padding-right != $td-padding-right
+    ) {
+        @include padding-shorthand((
+            top: $th-padding-top,
+            bottom: $th-padding-bottom,
+            left: $th-padding-left,
+            right: $th-padding-right
+        ));
+    }
+    font-weight: $th-font-weight;
+    text-align: $th-text-align;
+    @include th-extra-style();
 }
 
-tr:nth-child(even) td {
-    background: $td-even-background;
+td {
+    @if (
+        $th-border-width != $td-border-width or
+        $th-border-style != $td-border-style or
+        $th-border-color != $td-border-color
+    ) {
+        @include border-shorthand((
+            border: (
+                width: $td-border-width,
+                style: $td-border-style,
+                color: $td-border-color,
+                make-shorthand: true
+            )
+        ));
+    }
+    @if (
+        $th-border-top-width != $td-border-top-width or
+        $th-border-top-style != $td-border-top-style or
+        $th-border-top-color != $td-border-top-color or
+        $th-border-top-make-shorthand == $td-border-top-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-top: (
+                width: $td-border-top-width,
+                style: $td-border-top-style,
+                color: $td-border-top-color,
+                make-shorthand: $td-border-top-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-bottom-width != $td-border-bottom-width or
+        $th-border-bottom-style != $td-border-bottom-style or
+        $th-border-bottom-color != $td-border-bottom-color or
+        $th-border-bottom-make-shorthand == $td-border-bottom-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-bottom: (
+                width: $td-border-bottom-width,
+                style: $td-border-bottom-style,
+                color: $td-border-bottom-color,
+                make-shorthand: $td-border-bottom-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-left-width != $td-border-left-width or
+        $th-border-left-style != $td-border-left-style or
+        $th-border-left-color != $td-border-left-color or
+        $th-border-left-make-shorthand == $td-border-left-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-left: (
+                width: $td-border-left-width,
+                style: $td-border-left-style,
+                color: $td-border-left-color,
+                make-shorthand: $td-border-left-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-border-right-width != $td-border-right-width or
+        $th-border-right-style != $td-border-right-style or
+        $th-border-right-color != $td-border-right-color or
+        $th-border-right-make-shorthand == $td-border-right-make-shorthand
+    ) {
+        @include border-shorthand((
+            border-right: (
+                width: $td-border-right-width,
+                style: $td-border-right-style,
+                color: $td-border-right-color,
+                make-shorthand: $td-border-right-make-shorthand
+            )
+        ));
+    }
+    @if (
+        $th-padding-top != $td-padding-top or
+        $th-padding-bottom != $td-padding-bottom or
+        $th-padding-left != $td-padding-left or
+        $th-padding-right != $td-padding-right
+    ) {
+        @include padding-shorthand((
+            top: $td-padding-top,
+            bottom: $td-padding-bottom,
+            left: $td-padding-left,
+            right: $td-padding-right
+        ));
+    }
+    @include td-extra-style();
+}
+
+caption {
+    @include padding-shorthand((
+        top: $caption-padding-top,
+        bottom: $caption-padding-bottom,
+        left: $caption-padding-left,
+        right: $caption-padding-right
+    ));
+    text-align: $caption-text-align;
+    color: $caption-color;
+    @include caption-extra-style();
 }

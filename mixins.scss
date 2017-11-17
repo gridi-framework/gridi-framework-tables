@@ -1,94 +1,111 @@
 //Table
-@mixin include-table-colors($colors-map) {
-    @if map-has-key($colors-map, border-color) and map-get($colors-map, border-color) {
-        border-color: map-get($colors-map, border-color);
-    }
-    @if map-has-key($colors-map, color) and map-get($colors-map, color) {
-        color: map-get($colors-map, color);
-    }
+@mixin table-extra-colors-propertys($colors-map) {}
 
-    th, td {
-        border-color: map-get($colors-map, border-color);
-    }
+@mixin table-colors-propertys($colors-map) {
+    @include property-from-map($colors-map, border-color);
+    @include property-from-map($colors-map, border-top-color);
+    @include property-from-map($colors-map, border-bottom-color);
+    @include property-from-map($colors-map, border-left-color);
+    @include property-from-map($colors-map, border-right-color);
+    @include table-extra-colors-propertys($colors-map);
 }
 
 @mixin table-colors($colors-map) {
     table {
-        @include include-table-colors($colors-map);
+        @include table-colors-propertys($colors-map);
     }
 }
 
 @mixin class-table-colors($class, $colors-map) {
     table.#{$class} {
-        @include include-table-colors($colors-map);
+        @include table-colors-propertys($colors-map);
+    }
+}
+
+//Tr
+@mixin tr-extra-colors-propertys($colors-map) {}
+
+@mixin tr-colors-propertys($colors-map) {
+    @include tr-extra-colors-propertys($colors-map);
+}
+
+@mixin tr-colors($colors-map) {
+    tr {
+        @include tr-colors-propertys($colors-map);
+    }
+}
+
+@mixin class-tr-colors($class, $colors-map) {
+    tr.#{$class} {
+        @include tr-colors-propertys($colors-map);
     }
 }
 
 //Th
-@mixin include-th-colors($colors-map) {
-    @if map-has-key($colors-map, background) and map-get($colors-map, background) {
-        background: map-get($colors-map, background);
-    }
-    @if map-has-key($colors-map, color) and map-get($colors-map, color) {
-        color: map-get($colors-map, color);
-    }
+@mixin th-extra-colors-propertys($colors-map) {}
+
+@mixin th-colors-propertys($colors-map) {
+    @include property-from-map($colors-map, border-color);
+    @include property-from-map($colors-map, border-top-color);
+    @include property-from-map($colors-map, border-bottom-color);
+    @include property-from-map($colors-map, border-left-color);
+    @include property-from-map($colors-map, border-right-color);
+    @include property-from-map($colors-map, background-color);
+    @include th-extra-colors-propertys($colors-map);
 }
 
 @mixin th-colors($colors-map) {
     th {
-        @include include-th-colors($colors-map);
+        @include th-colors-propertys($colors-map);
     }
 }
 
 @mixin class-th-colors($class, $colors-map) {
     th.#{$class} {
-        @include include-th-colors($colors-map);
+        @include th-colors-propertys($colors-map);
     }
 }
 
 //Td
-@mixin include-td-colors($colors-map) {
-    @if map-has-key($colors-map, background) and map-get($colors-map, background) {
-        background: map-get($colors-map, background);
-    }
-    @if map-has-key($colors-map, color) and map-get($colors-map, color) {
-        color: map-get($colors-map, color);
-    }
+@mixin td-extra-colors-propertys($colors-map) {}
+
+@mixin td-colors-propertys($colors-map) {
+    @include property-from-map($colors-map, border-color);
+    @include property-from-map($colors-map, border-top-color);
+    @include property-from-map($colors-map, border-bottom-color);
+    @include property-from-map($colors-map, border-left-color);
+    @include property-from-map($colors-map, border-right-color);
+    @include td-extra-colors-propertys($colors-map);
 }
 
 @mixin td-colors($colors-map) {
     td {
-        @include include-td-colors($colors-map);
-    }
-}
-
-@mixin td-even-colors($colors-map) {
-    tr:nth-child(even) td {
-        @include include-td-colors($colors-map);
+        @include td-colors-propertys($colors-map);
     }
 }
 
 @mixin class-td-colors($class, $colors-map) {
     td.#{$class} {
-        @include include-td-colors($colors-map);
+        @include td-colors-propertys($colors-map);
     }
 }
 
 //Caption
-@mixin include-caption-colors($colors-map) {
-    @if map-has-key($colors-map, color) and map-get($colors-map, color) {
-        color: map-get($colors-map, color);
-    }
+@mixin caption-extra-colors-propertys($colors-map) {}
+
+@mixin caption-colors-propertys($colors-map) {
+    @include property-from-map($colors-map, color);
+    @include caption-extra-colors-propertys($colors-map);
 }
 
 @mixin caption-colors($colors-map) {
     caption {
-        @include include-caption-colors($colors-map);
+        @include caption-colors-propertys($colors-map);
     }
 }
 
 @mixin class-caption-colors($class, $colors-map) {
     caption.#{$class} {
-        @include include-caption-colors($colors-map);
+        @include caption-colors-propertys($colors-map);
     }
 }

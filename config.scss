@@ -1,31 +1,148 @@
 //Table
+$table-width: 100% !default;
+
+//Margins
 $table-margin-top: $elements-margin-top !default;
 $table-margin-bottom: $elements-margin-bottom !default;
 $table-margin-left: $elements-margin-left !default;
 $table-margin-right: $elements-margin-right !default;
-//Defined margins for each screens.
-$table-margin-for-screens: () !default;
-/*$table-margin-for-screens: (
-    s1: (
-        top: 20px, //Not required. Define only the margins values you want to change. Example - s2: ( top: 20px ) - change only top margin for screens greater than s2
-        bottom: 20px,
-        left: 20px,
-        right: 20px,
-    ),
-    ...
-) !default;*/
-$table-border: 1px solid transparent !default;
+$table-margin-for-screens: $elements-margin-for-screens !default;
+
+//Borders
+$table-border-width: 1px !default;
+$table-border-style: solid !default;
+$table-border-color: get-color(grey, 200) !default;
+
+$table-border-top-width: null !default;
+$table-border-top-style: null !default;
+$table-border-top-color: null !default;
+$table-border-top-make-shorthand: false !default;
+
+$table-border-bottom-width: null !default;
+$table-border-bottom-style: null !default;
+$table-border-bottom-color: null !default;
+$table-border-bottom-make-shorthand: false !default;
+
+$table-border-left-width: null !default;
+$table-border-left-style: null !default;
+$table-border-left-color: null !default;
+$table-border-left-make-shorthand: false !default;
+
+$table-border-right-width: null !default;
+$table-border-right-style: null !default;
+$table-border-right-color: null !default;
+$table-border-right-make-shorthand: false !default;
+
+$table-border-collapse: collapse !default;
+$table-border-spacing-horizontal: 0 !default;
+$table-border-spacing-vertical: 0 !default;
+
+//Extra style
+@mixin table-extra-style() {}
+
+//Tr
+//Extra style
+@mixin tr-extra-style() {}
 
 //Th Td
-$table-column-padding: 0.85em 1em !default;
+@mixin th-td-extra-style() {}
 
 //Th
-$th-background: get-color(grey, 200) !default;
+//Borders
+$th-border-width: $table-border-width !default;
+$th-border-style: $table-border-style !default;
+$th-border-color: $table-border-color !default;
+
+$th-border-top-width: null !default;
+$th-border-top-style: null !default;
+$th-border-top-color: null !default;
+$th-border-top-make-shorthand: false !default;
+
+$th-border-bottom-width: null !default;
+$th-border-bottom-style: null !default;
+$th-border-bottom-color: null !default;
+$th-border-bottom-make-shorthand: false !default;
+
+$th-border-left-width: null !default;
+$th-border-left-style: null !default;
+$th-border-left-color: null !default;
+$th-border-left-make-shorthand: false !default;
+
+$th-border-right-width: null !default;
+$th-border-right-style: null !default;
+$th-border-right-color: null !default;
+$th-border-right-make-shorthand: false !default;
+
+//Background
+$th-background-image: null !default;
+$th-background-position: null !default;
+$th-background-repeat: null !default;
+$th-background-color: $table-border-color !default;
+$th-background-attachment: null !default;
+
+//Paddings
+$th-padding-top: 0.85em !default;
+$th-padding-bottom: 0.85em !default;
+$th-padding-left: 1em !default;
+$th-padding-right: 1em !default;
+
+//Font
+$th-font-weight: bold !default;
+
+//Text
+$th-text-align: left !default;
+
+//Extra style
+@mixin th-extra-style() {}
 
 //Td
-$td-even-background: $th-background !default;
+//Borders
+$td-border-width: $table-border-width !default;
+$td-border-style: $table-border-style !default;
+$td-border-color: $table-border-color !default;
+
+$td-border-top-width: null !default;
+$td-border-top-style: null !default;
+$td-border-top-color: null !default;
+$td-border-top-make-shorthand: false !default;
+
+$td-border-bottom-width: null !default;
+$td-border-bottom-style: null !default;
+$td-border-bottom-color: null !default;
+$td-border-bottom-make-shorthand: false !default;
+
+$td-border-left-width: null !default;
+$td-border-left-style: null !default;
+$td-border-left-color: null !default;
+$td-border-left-make-shorthand: false !default;
+
+$td-border-right-width: null !default;
+$td-border-right-style: null !default;
+$td-border-right-color: null !default;
+$td-border-right-make-shorthand: false !default;
+
+//Paddings
+$td-padding-top: $th-padding-top !default;
+$td-padding-bottom: $th-padding-bottom !default;
+$td-padding-left: $th-padding-left !default;
+$td-padding-right: $th-padding-right !default;
+
+//Extra style
+@mixin td-extra-style() {}
+
+//Td even
+//$td-even-background: $th-background !default;
 
 //Caption
-$caption-padding: $table-column-padding !default;
+//Paddings
+$caption-padding-top: $th-padding-top !default;
+$caption-padding-bottom: $th-padding-bottom !default;
+$caption-padding-left: $th-padding-left !default;
+$caption-padding-right: $th-padding-right !default;
+
+//Text
 $caption-text-align: center !default;
 $caption-color: $primary-color !default;
+
+//Extra style
+@mixin caption-extra-style() {}
