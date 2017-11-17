@@ -46,10 +46,6 @@ table {
     @include table-extra-style();
 }
 
-tr {
-    @include tr-extra-style();
-}
-
 th, td {
     @if (
         $th-border-width == $td-border-width and
@@ -333,6 +329,10 @@ td {
         ));
     }
     @include td-extra-style();
+}
+
+tr {
+    @include tr-extra-style();
 }
 
 caption {
