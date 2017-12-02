@@ -12,26 +12,7 @@ $table-margin-for-screens: $elements-margin-for-screens !default;
 $table-border-width: 1px !default;
 $table-border-style: solid !default;
 $table-border-color: get-color(grey, 200) !default;
-
-$table-border-top-width: null !default;
-$table-border-top-style: null !default;
-$table-border-top-color: null !default;
-$table-border-top-make-shorthand: false !default;
-
-$table-border-bottom-width: null !default;
-$table-border-bottom-style: null !default;
-$table-border-bottom-color: null !default;
-$table-border-bottom-make-shorthand: false !default;
-
-$table-border-left-width: null !default;
-$table-border-left-style: null !default;
-$table-border-left-color: null !default;
-$table-border-left-make-shorthand: false !default;
-
-$table-border-right-width: null !default;
-$table-border-right-style: null !default;
-$table-border-right-color: null !default;
-$table-border-right-make-shorthand: false !default;
+$table-borders: () !default;
 
 $table-border-collapse: collapse !default;
 $table-border-spacing-horizontal: 0 !default;
@@ -52,26 +33,7 @@ $table-border-spacing-vertical: 0 !default;
 $th-border-width: $table-border-width !default;
 $th-border-style: $table-border-style !default;
 $th-border-color: $table-border-color !default;
-
-$th-border-top-width: null !default;
-$th-border-top-style: null !default;
-$th-border-top-color: null !default;
-$th-border-top-make-shorthand: false !default;
-
-$th-border-bottom-width: null !default;
-$th-border-bottom-style: null !default;
-$th-border-bottom-color: null !default;
-$th-border-bottom-make-shorthand: false !default;
-
-$th-border-left-width: null !default;
-$th-border-left-style: null !default;
-$th-border-left-color: null !default;
-$th-border-left-make-shorthand: false !default;
-
-$th-border-right-width: null !default;
-$th-border-right-style: null !default;
-$th-border-right-color: null !default;
-$th-border-right-make-shorthand: false !default;
+$th-borders: () !default;
 
 //Background
 $th-background-image: null !default;
@@ -100,26 +62,7 @@ $th-text-align: left !default;
 $td-border-width: $table-border-width !default;
 $td-border-style: $table-border-style !default;
 $td-border-color: $table-border-color !default;
-
-$td-border-top-width: null !default;
-$td-border-top-style: null !default;
-$td-border-top-color: null !default;
-$td-border-top-make-shorthand: false !default;
-
-$td-border-bottom-width: null !default;
-$td-border-bottom-style: null !default;
-$td-border-bottom-color: null !default;
-$td-border-bottom-make-shorthand: false !default;
-
-$td-border-left-width: null !default;
-$td-border-left-style: null !default;
-$td-border-left-color: null !default;
-$td-border-left-make-shorthand: false !default;
-
-$td-border-right-width: null !default;
-$td-border-right-style: null !default;
-$td-border-right-color: null !default;
-$td-border-right-make-shorthand: false !default;
+$td-borders: () !default;
 
 //Paddings
 $td-padding-top: $th-padding-top !default;
