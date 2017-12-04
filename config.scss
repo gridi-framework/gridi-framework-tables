@@ -19,14 +19,14 @@ $table-border-spacing-horizontal: 0 !default;
 $table-border-spacing-vertical: 0 !default;
 
 //Extra style
-@mixin table-extra-style() {}
+//@mixin table-extra-style() {} //Create this mixin before import module when you want add some special style for element
 
 //Tr
 //Extra style
-@mixin tr-extra-style() {}
+//@mixin tr-extra-style() {} //Create this mixin before import module when you want add some special style for element
 
 //Th Td
-@mixin th-td-extra-style() {}
+//@mixin th-td-extra-style() {} //Create this mixin before import module when you want add some special style for element
 
 //Th
 //Borders
@@ -55,7 +55,7 @@ $th-font-weight: bold !default;
 $th-text-align: left !default;
 
 //Extra style
-@mixin th-extra-style() {}
+//@mixin th-extra-style() {} //Create this mixin before import module when you want add some special style for element
 
 //Td
 //Borders
@@ -71,7 +71,7 @@ $td-padding-left: $th-padding-left !default;
 $td-padding-right: $th-padding-right !default;
 
 //Extra style
-@mixin td-extra-style() {}
+//@mixin td-extra-style() {} //Create this mixin before import module when you want add some special style for element
 
 //Td even
 //$td-even-background: $th-background !default;
@@ -88,4 +88,4 @@ $caption-text-align: center !default;
 $caption-color: $primary-color !default;
 
 //Extra style
-@mixin caption-extra-style() {}
+//@mixin caption-extra-style() {} //Create this mixin before import module when you want add some special style for element

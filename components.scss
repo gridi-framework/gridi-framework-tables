@@ -19,7 +19,9 @@ table {
         horizontal: $table-border-spacing-horizontal,
         vertical: $table-border-spacing-vertical
     ));
-    @include table-extra-style();
+    @if mixin-exists(table-extra-style) {
+        @include table-extra-style();
+    }
 }
 
 th, td {
@@ -51,7 +53,9 @@ th, td {
             right: $th-padding-right
         ));
     }
-    @include th-td-extra-style();
+    @if mixin-exists(th-td-extra-style) {
+        @include th-td-extra-style();
+    }
 }
 
 th {
@@ -93,7 +97,9 @@ th {
     }
     font-weight: $th-font-weight;
     text-align: $th-text-align;
-    @include th-extra-style();
+    @if mixin-exists(th-extra-style) {
+        @include th-extra-style();
+    }
 }
 
 td {
@@ -125,11 +131,15 @@ td {
             right: $td-padding-right
         ));
     }
-    @include td-extra-style();
+    @if mixin-exists(td-extra-style) {
+        @include td-extra-style();
+    }
 }
 
 tr {
-    @include tr-extra-style();
+    @if mixin-exists(tr-extra-style) {
+        @include tr-extra-style();
+    }
 }
 
 caption {
@@ -141,5 +151,7 @@ caption {
     ));
     text-align: $caption-text-align;
     color: $caption-color;
-    @include caption-extra-style();
+    @if mixin-exists(caption-extra-style) {
+        @include caption-extra-style();
+    }
 }

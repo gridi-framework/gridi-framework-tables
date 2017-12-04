@@ -1,9 +1,11 @@
 //Table
-@mixin table-extra-colors-propertys($colors-map) {}
+//@mixin table-extra-colors-propertys($colors-map) {} //Create this mixin before import module when you want add some special colors style for element
 
 @mixin table-colors-propertys($colors-map) {
     @include property-from-map($colors-map, border-color);
-    @include table-extra-colors-propertys($colors-map);
+    @if mixin-exists(table-extra-colors-propertys) {
+        @include table-extra-colors-propertys($colors-map);
+    }
 }
 
 @mixin table-colors($colors-map) {
@@ -19,10 +21,12 @@
 }
 
 //Tr
-@mixin tr-extra-colors-propertys($colors-map) {}
+//@mixin tr-extra-colors-propertys($colors-map) {} //Create this mixin before import module when you want add some special colors style for element
 
 @mixin tr-colors-propertys($colors-map) {
-    @include tr-extra-colors-propertys($colors-map);
+    @if mixin-exists(tr-extra-colors-propertys) {
+        @include tr-extra-colors-propertys($colors-map);
+    }
 }
 
 @mixin tr-colors($colors-map) {
@@ -38,12 +42,14 @@
 }
 
 //Th
-@mixin th-extra-colors-propertys($colors-map) {}
+//@mixin th-extra-colors-propertys($colors-map) {} //Create this mixin before import module when you want add some special colors style for element
 
 @mixin th-colors-propertys($colors-map) {
     @include property-from-map($colors-map, border-color);
     @include property-from-map($colors-map, background-color);
-    @include th-extra-colors-propertys($colors-map);
+    @if mixin-exists(th-extra-colors-propertys) {
+        @include th-extra-colors-propertys($colors-map);
+    }
 }
 
 @mixin th-colors($colors-map) {
@@ -59,11 +65,13 @@
 }
 
 //Td
-@mixin td-extra-colors-propertys($colors-map) {}
+//@mixin td-extra-colors-propertys($colors-map) {} //Create this mixin before import module when you want add some special colors style for element
 
 @mixin td-colors-propertys($colors-map) {
     @include property-from-map($colors-map, border-color);
-    @include td-extra-colors-propertys($colors-map);
+    @if mixin-exists(td-extra-colors-propertys) {
+        @include td-extra-colors-propertys($colors-map);
+    }
 }
 
 @mixin td-colors($colors-map) {
@@ -79,11 +87,13 @@
 }
 
 //Caption
-@mixin caption-extra-colors-propertys($colors-map) {}
+//@mixin caption-extra-colors-propertys($colors-map) {} //Create this mixin before import module when you want add some special colors style for element
 
 @mixin caption-colors-propertys($colors-map) {
     @include property-from-map($colors-map, color);
-    @include caption-extra-colors-propertys($colors-map);
+    @if mixin-exists(caption-extra-colors-propertys) {
+        @include caption-extra-colors-propertys($colors-map);
+    }
 }
 
 @mixin caption-colors($colors-map) {
