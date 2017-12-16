@@ -47,6 +47,7 @@
 @mixin th-colors-propertys($colors-map) {
     @include property-from-map($colors-map, border-color);
     @include property-from-map($colors-map, background-color);
+    @include property-from-map($colors-map, color);
     @if mixin-exists(th-extra-colors-propertys) {
         @include th-extra-colors-propertys($colors-map);
     }
